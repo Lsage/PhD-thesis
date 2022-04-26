@@ -3,6 +3,7 @@
 *****************************************
 * Version March 2022
 * FIRST SCRIPT: DATA CLEANING 
+* STATA
 
 cd "C:\Users\AQRDEDA_L_SAGE000\Documents\Growth curve chapter"
 
