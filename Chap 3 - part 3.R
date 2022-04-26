@@ -7,42 +7,8 @@
 
 library(haven)
 library(dplyr)
-library(moments)
-library(tidyr)
-library(plotly)
 
 # Load the data obtained after stata scripts have been executed:
-data<-read_dta("C:/Users/AQRDEDA_L_SAGE000/Documents/Data/dadsEdpFullResultsReg.dta")
-
-
-# A BIT OF VAR RECODING AND DATA CLEANING:
-#===================================================================================
-data<-data%>%filter(main_job_gross==1,pcs2!="")
-# Take only the observations that were used in the regression:
-data<-data[which(complete.cases(data$ffe)==TRUE),]
-
-data$edu1<-ifelse(is.na(data$educ)==TRUE,NA,0)
-data$edu2<-ifelse(is.na(data$educ)==TRUE,NA,0)
-data$edu3<-ifelse(is.na(data$educ)==TRUE,NA,0)
-data$edu4<-ifelse(is.na(data$educ)==TRUE,NA,0)
-
-data[which(data$educ==1),]$edu1<-1
-data[which(data$educ==2),]$edu2<-1
-data[which(data$educ==3),]$edu3<-1
-data[which(data$educ==4),]$edu4<-1
-
-data$ga1<-ifelse(is.na(data$ageCat)==TRUE,NA,0)
-data$ga2<-ifelse(is.na(data$ageCat)==TRUE,NA,0)
-data$ga3<-ifelse(is.na(data$ageCat)==TRUE,NA,0)
-data$ga4<-ifelse(is.na(data$ageCat)==TRUE,NA,0)
-
-data[which(data$ageCat==1),]$ga1<-1
-data[which(data$ageCat==2),]$ga2<-1
-data[which(data$ageCat==0),]$ga3<-1
-data[which(data$ageCat==3),]$ga4<-1
-#===================================================================================
-
-
 data<-read_dta("C:/Users/AQRDEDA_L_SAGE000/Documents/Data/dadsEdpFullResultsReg.dta")
 
 # PRELIMINATORY STEPS FOR RANDOM REALLOCATION:
